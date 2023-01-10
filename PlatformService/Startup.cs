@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PlatformService.AsyncDataServices;
 
 namespace PlatformService
 {
@@ -37,6 +38,7 @@ namespace PlatformService
             services.AddScoped<IPlatformRepository, PlatformRepository>();
 
             services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
+            services.AddSingleton<IMessageBusClient, MessageBusClient>();
 
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

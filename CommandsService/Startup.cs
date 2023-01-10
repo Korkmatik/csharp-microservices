@@ -32,6 +32,8 @@ namespace CommandsService
                 opt => opt.UseInMemoryDatabase("InMem")
             );
 
+            services.AddScoped<ICommandRepository, CommandRepository>();
+
             services.AddControllers();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
